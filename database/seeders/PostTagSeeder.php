@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CommentSeeder extends Seeder
+class PostTagSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,18 +15,19 @@ class CommentSeeder extends Seeder
     public function run()
     {
         
-        // DB::table("comments")->insert([
+
+        // DB::table("post_tag")->insert([
         //     // "name" => "youness",
-        //     "content" => "commentaire test 1",
+        //     "post_id" => '2',
         //     // "message" => "commentaire test message 1",
-        //     "post_id" => "1",
+        //     "tag_id" => '1',
+        // ]);
+        // DB::table("post_tag")->insert([
+        //     // "name" => "youness",
+        //     "post_id" => '1',
+        //     // "message" => "commentaire test message 1",
+        //     "tag_id" => '2',
         // ]);
 
-        // DB::table("comments")->insert([
-        //     // "name" => "youness",
-        //     "content" => "commentaire test 2",
-        //     // "message" => "commentaire test message 2",
-        //     "post_id" => "2",
-        // ]);
     }
 }

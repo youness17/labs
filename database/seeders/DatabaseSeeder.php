@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(CommentSeeder::class);
         $this->call(PostSeeder::class);
+        $this->call(PostTagSeeder::class);
+        $this->call(TagSeeder::class);
         // \App\Models\Post::factory(50)->create();
         // \App\Models\Comment::factory(50)->create();
       

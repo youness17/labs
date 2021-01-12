@@ -32,3 +32,4 @@ class PostSeeder extends Seeder
         ]);
     }
 }
+

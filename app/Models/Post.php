@@ -19,6 +19,12 @@ class Post extends Model
 
 
 
-        return $this->morphMany(Comment::class ,'commentable')->latest();
+        return $this->hasMany(Comment::class)->latest();
+    }
+
+    public function tags()
+
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

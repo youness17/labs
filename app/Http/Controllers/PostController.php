@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\Logo;
+use App\Models\Menu;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,9 +21,10 @@ class PostController extends Controller
     public function index()
     {
         //
+        $comments = Comment::all();
         $posts = Post::all();
         $user = User::all();
-        return view('admin.blog.posts.index', compact('posts' , 'user') );
+        return view('admin.blog.posts.index', compact('posts', 'user', 'comments'));
     }
 
     /**
@@ -32,8 +37,8 @@ class PostController extends Controller
         //
         $posts = Post::all();
         $user = User::all();
-        
-        return view("admin.blog.posts.create",  compact('posts' , 'user') );
+
+        return view("admin.blog.posts.create",  compact('posts', 'user'));
     }
 
     /**
@@ -48,14 +53,14 @@ class PostController extends Controller
         $post = new Post();
         // $request->validate([
         //     "img" => "required",
-            
+
         // ]);
 
         $post->img = $request->file("img")->hashName();
         $request->file("img")->storePublicly("img", "public");
 
 
-    
+
         $post->titre = $request->input('titre');
         $post->description = $request->input('description');
         $post->texte = $request->input('texte');
@@ -76,6 +81,22 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+
+    //     $user = User::all();
+    //     $menus = Menu::all();
+    //     $logo = Logo::all();
+    //     $comment = Comment::all();
+
+    //     $tag = Tag::all();
+    //     // $posts = Post::all();
+    //     return view(
+    //         'pages.blog-post.index',
+    //         [
+
+    //             'posts' => $tag->posts,
+    //         ],
+    //         compact('menus', 'logo', 'comment', 'post', 'user', 'tag',)
+    //     );
     }
 
     /**
@@ -89,9 +110,8 @@ class PostController extends Controller
         //
         $user = User::all();
         $post = Post::find($id);
-        
-        return view("admin.blog.posts.edit" , compact('post' , 'user'));
-        
+
+        return view("admin.blog.posts.edit", compact('post', 'user'));
     }
 
     /**
@@ -110,7 +130,7 @@ class PostController extends Controller
         $request->file("img")->storePublicly("img", "public");
 
 
-    
+
         $post->titre = $request->input('titre');
         $post->description = $request->input('description');
         $post->texte = $request->input('texte');
@@ -134,9 +154,9 @@ class PostController extends Controller
         $post = Post::find($id);
 
         Storage::disk("public")->delete("img/"  . $post->img);
-        
-       
-        
+
+
+
         $post->delete();
         return redirect()->back();
     }
