@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostTagTable extends Migration
+class CreateBlograpidesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,11 @@ class CreatePostTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_tag', function (Blueprint $table) {
+        Schema::create('blograpides', function (Blueprint $table) {
             $table->id();
-
-
-            $table->foreignId('post_id')
-                ->constrained()
-                ->onDeletet("cascade");
-            $table->foreignId('tag_id')
-                ->constrained()
-                ->onDeletet("cascade");
-
+            $table->string("image");
+            $table->string("titre");
+            $table->text("texte");
             $table->timestamps();
         });
     }
@@ -35,6 +29,6 @@ class CreatePostTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_tag');
+        Schema::dropIfExists('blograpides');
     }
 }

@@ -7,9 +7,10 @@ use App\Models\Logo;
 use App\Models\Menu;
 use App\Models\Post;
 use App\Models\Postpage;
-use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
+
+
 
 class PostpageController extends Controller
 {
@@ -20,21 +21,13 @@ class PostpageController extends Controller
      */
     public function index(Post $post)
     {
-        
+       
         $user = User::all();
         $menus = Menu::all();
         $logo = Logo::all();
         $comment = Comment::all();
-
-        $tag = Tag::all();
-        // $posts = Post::all();
         return view(
-            'pages.blog-post.index',
-            // [
-
-            //     'posts' => $tag->posts,
-            // ],
-            compact('menus', 'logo', 'comment', 'post', 'user')
+            'pages.blog-post.index', compact('menus', 'logo', 'comment', 'post', 'user', )
         );
         //
         // $menus = Menu::all();
@@ -76,11 +69,11 @@ class PostpageController extends Controller
     {
         //
         
-        $menus = Menu::all();
-        $logo = Logo::all();
-        $comments = Comment::all();
-        $posts = Post::all();
-        return view('pages.blog-post.index', compact('menus', 'logo', 'comments', 'posts') );
+    //     $menus = Menu::all();
+    //     $logo = Logo::all();
+    //     $comments = Comment::all();
+    //     $posts = Post::all();
+    //     return view('pages.blog-post.index', compact('menus', 'logo', 'comments', 'posts') );
     }
 
     /**

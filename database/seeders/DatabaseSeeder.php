@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PostSeeder::class);
         $this->call(PostTagSeeder::class);
         $this->call(TagSeeder::class);
+        $this->call(IconeSeeder::class);
         // \App\Models\Post::factory(50)->create();
         // \App\Models\Comment::factory(50)->create();
       

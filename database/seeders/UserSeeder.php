@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
     {
 
         DB::table("users")->insert([
+            "photo" => "logo.png",
             "name" => "youness",
             "email" => "youness@gmail.com",
             "password" => Hash::make("youness"),
@@ -24,6 +25,7 @@ class UserSeeder extends Seeder
         ]);
 
         DB::table("users")->insert([
+            "photo" => "logo.png",
             "name" => "mohamed",
             "email" => "mohamed@gmail.com",
             "password" => Hash::make("mohamed"),

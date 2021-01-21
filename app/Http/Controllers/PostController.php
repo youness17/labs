@@ -8,6 +8,7 @@ use App\Models\Menu;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -35,10 +36,11 @@ class PostController extends Controller
     public function create()
     {
         //
+        $tag = Tag::all();
         $posts = Post::all();
         $user = User::all();
 
-        return view("admin.blog.posts.create",  compact('posts', 'user'));
+        return view("admin.blog.posts.create",  compact('posts', 'user' ,'tag'));
     }
 
     /**
@@ -82,21 +84,14 @@ class PostController extends Controller
     {
         //
 
-    //     $user = User::all();
-    //     $menus = Menu::all();
-    //     $logo = Logo::all();
-    //     $comment = Comment::all();
-
-    //     $tag = Tag::all();
-    //     // $posts = Post::all();
-    //     return view(
-    //         'pages.blog-post.index',
-    //         [
-
-    //             'posts' => $tag->posts,
-    //         ],
-    //         compact('menus', 'logo', 'comment', 'post', 'user', 'tag',)
-    //     );
+        $user = User::all();
+        $menus = Menu::all();
+        $logo = Logo::all();
+        $comment = Comment::all();
+        $tag= Tag::all();
+        return view(
+            'pages.blog-post.index', compact('menus', 'logo', 'comment', 'post', 'user', 'tag' )
+        );
     }
 
     /**
@@ -110,6 +105,9 @@ class PostController extends Controller
         //
         $user = User::all();
         $post = Post::find($id);
+      
+
+       
 
         return view("admin.blog.posts.edit", compact('post', 'user'));
     }
@@ -121,9 +119,18 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
+        $post = Post::find($id);
+
+
         //
+        if (Gate::check('post.post', $post)) {
+            // The user can create the post...
+            abort(403);
+        }
+     
+       
         Storage::disk("public")->delete("img/"  . $post->img);
 
         $post->img = $request->file("img")->hashName();

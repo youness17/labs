@@ -26,14 +26,15 @@
 
                     <div class="single-post">
                         <div class="post-thumbnail">
-                            <img src="{{ asset("img/$post->img") }}" alt="">
+                            <img src="{{ asset("img/$post->img") }}">
 
-                            <x-tags :tags="$post->tags"></x-tag>
+                            
+                                
 
-                            <div class="post-date">
-                                <h2>03</h2>
-                                <h3>Nov 2017</h3>
-                            </div>
+                                <div class="post-date">
+                                    <h2>03</h2>
+                                    <h3>Nov 2017</h3>
+                                </div>
                         </div>
                         <div class="post-content">
                             <h2 class="post-title">{{ $post->titre }}</h2>
@@ -56,17 +57,20 @@
                                 </p>
                             </div>
                         </div>
-                        
+
+
+
+
+
+
                         <!-- Post Comments -->
-
-
                         <div class="comments">
                             <h2>Comments (2)</h2>
                             @forelse ($post->comments as $i)
                                 <ul class="comment-list">
                                     <li>
                                         <div class="avatar">
-                                            <img src="img/avatar/01.jpg" alt="">
+                                            <img src=" {{ $i->user->photo }}" alt="">
                                         </div>
                                         <div class="commetn-text">
                                             <h3> {{ $i->user->name }}</h3>
@@ -79,7 +83,7 @@
                                 <div class="alert alert-info">aucune commantaire</div>
                             @endforelse
                         </div>
-                        
+
                         <!-- Commert Form -->
 
 
@@ -178,14 +182,12 @@
                     <!-- Single widget -->
                     <div class="widget-item">
                         <h2 class="widget-title">Tags</h2>
+                      
                         <ul class="tag">
-                            <li><a href="">branding</a></li>
-                            <li><a href="">identity</a></li>
-                            <li><a href="">video</a></li>
-                            <li><a href="">design</a></li>
-                            <li><a href="">inspiration</a></li>
-                            <li><a href="">web design</a></li>
-                            <li><a href="">photography</a></li>
+
+                            <x-tags :tags="$post->tags"></x-tags>
+                          
+                           
                         </ul>
                     </div>
                     <!-- Single widget -->

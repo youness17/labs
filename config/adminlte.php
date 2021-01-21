@@ -256,7 +256,7 @@ return [
             'text'    => 'TEMPLATE',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
-                
+
                 [
                     'text' => 'Menu',
                     'url'  => '/menu',
@@ -269,18 +269,92 @@ return [
         ],
 
         [
+            'text'    => 'HOME',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+
+                [
+                    'text' => 'Banner',
+                    'url'  => '/admin/home/banner',
+                ],
+
+                [
+                    'text' => 'Titre Slogan',
+                    'url'  => '/admin/home/titreslogan',
+                ],
+
+                [
+                    'text' => 'About',
+                    'url'  => '/admin/home/about',
+                ],
+
+                [
+                    'text' => 'Video',
+                    'url'  => '/admin/home/video',
+                ],
+
+            ],
+        ],
+
+        [
+            'text'    => 'SERVICES',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+
+                [
+                    'text' => 'services',
+                    'url'  => '/admin/services/serviceslist',
+                ],
+
+                [
+                    'text' => 'services primes',
+                    'url'  => '/admin/services/servicesprime', 
+                ],
+
+                [
+                    'text' => 'Blog rapides',
+                    'url'  => '/admin/services/blograpide', 
+                ],
+
+
+            ],
+        ],
+
+        [
+            'text' => 'NEWSLETTER',
+            'icon'    => 'fas fa-fw fa-share',
+            'url'  => '/admin/newsletter',
+        ],
+
+        [
             'text'    => 'BLOG',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
-                
+
                 [
                     'text' => 'post',
                     'url'  => '/admin/blog/post',
                 ],
-            
-                
+
+
             ],
         ],
+
+
+        [
+            'text'    => 'CONTACT',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+
+                [
+                    'text' => 'contact info',
+                    'url'  => '/admin/contact/contactinfo',
+                ],
+
+
+            ],
+        ],
+
 
         ['header' => 'labels'],
         [

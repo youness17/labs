@@ -44,6 +44,21 @@
             </select>
         </div>
 
+
+@foreach ($tag as $i)
+
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="{{$i->tag}}" id="flexCheckIndeterminate">
+    <label class="form-check-label" for="flexCheckIndeterminate">
+      
+    </label>
+  </div>
+    
+@endforeach
+        
+
+
+
         <button class="btn btn-danger" type="submit">add</button>
     </form>
 

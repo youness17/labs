@@ -1,10 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Mail\CommentPost;
 use App\Notifications\NewCommentPosted;
 use App\Models\Comment;
+use App\Models\Menu;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CommentController extends Controller
 {
@@ -80,12 +84,11 @@ class CommentController extends Controller
         $comment = new Comment();
         $comment->content = request('content');
         $comment->user_id = auth()->user()->id;
-
+        Mail::to($post->user->email)->send(new CommentPost($comment));
         $post->comments()->save($comment);
-
+    
         // Notification envoyée à l'auteur du post
         // $post->user->notify(new NewCommentPosted(auth()->user(), $post));
-
         return redirect()->route('post.show', $post);
     }
 

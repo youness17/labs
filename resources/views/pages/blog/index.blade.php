@@ -28,6 +28,8 @@
 
                     @foreach ($posts as $i)
 
+
+                    
                         <div class="post-item">
                             <div class="post-thumbnail">
 
@@ -38,7 +40,7 @@
                                 </div>
                             </div>
                             <div class="post-content">
-                                <h2 class="post-title">Just a simple blog post</h2>
+                                <h2 class="post-title">{{ $i->titre }}</h2>
 
 
 
@@ -48,14 +50,14 @@
                                     <a href="">2 Comments</a>
                                 </div>
                                 <p>{{ $i->texte }}</p>
-                                <a href="{{ route('postpage.index', $i->id) }}" class="read-more">Read More</a>
+                                <a href="{{ route('post.show', $i->id) }}" class="read-more">Read More</a>
                             </div>
                         </div>
                         <x-tags :tags="$i->tags"></x-tag>
                     @endforeach
 
                     <div>
-                        {{ $posts->links() }}
+                        {{-- {{ $posts->links() }} --}}
                     </div>
                 </div>
 
@@ -98,13 +100,13 @@
                     <div class="widget-item">
                         <h2 class="widget-title">Tags</h2>
                         <ul class="tag">
-                            <li><a href="">branding</a></li>
-                            <li><a href="">identity</a></li>
-                            <li><a href="">video</a></li>
-                            <li><a href="">design</a></li>
-                            <li><a href="">inspiration</a></li>
-                            <li><a href="">web design</a></li>
-                            <li><a href="">photography</a></li>
+                            @foreach ($post as $post)
+                                
+                            <li><a href="">{{$post->tags}}</a></li>
+
+                            @endforeach
+                            
+                         
                         </ul>
                     </div>
                     <!-- Single widget -->
