@@ -57,9 +57,10 @@ Route::get('/', function () {
     $services= Service::all();
     $about = About::all();
     $video = Video::all();
-    $testimonial = Testimonial::all();
+    $testimonials = Testimonial::all();
     $contactinfo = Contactinfo::all();
-    return view('pages.home.index', compact('menus', 'logo' , 'titreSlogan' , 'banner','services', 'about' , 'video', 'testimonial' , 'contactinfo'));
+    $icone = Icone::all();
+    return view('pages.home.index', compact('menus', 'logo' , 'titreSlogan' , 'banner','services', 'about' , 'video', 'testimonials' , 'contactinfo' ,'icone'));
 });
 
 
@@ -87,9 +88,10 @@ Route::get('/home', function () {
     $services = Service::all();
     $about = About::all();
     $video = Video::all();
-    $testimonial = Testimonial::all();
+    $testimonials = Testimonial::all();
     $contactinfo = Contactinfo::all();
-    return view('pages.home.index',  compact('menus', 'logo', 'banner', 'titreSlogan' ,  'services' , 'about', 'video', 'testimonial' , 'contactinfo'));
+    $icone = Icone::all();
+    return view('pages.home.index',  compact('menus', 'logo', 'banner', 'titreSlogan' ,  'services' , 'about', 'video', 'testimonials' , 'contactinfo', 'icone'));
 })->name('home');
 
 // BLOG
@@ -217,3 +219,7 @@ Route::resource("/admin/home/video", VideoController::class);
 // TESTIMONIAL 
 
 Route::resource("/admin/home/testimonial", TestimonialController::class);
+
+// PPST-TAG
+
+Route::resource('/admin/blog/posttag', PostTagController::class);

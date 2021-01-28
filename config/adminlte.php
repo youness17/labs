@@ -293,6 +293,11 @@ return [
                     'url'  => '/admin/home/video',
                 ],
 
+                [
+                    'text' => 'Testimonial',
+                    'url'  => '/admin/home/testimonial',
+                ],
+
             ],
         ],
 
@@ -334,6 +339,11 @@ return [
                 [
                     'text' => 'post',
                     'url'  => '/admin/blog/post',
+                ],
+
+                [
+                    'text' => 'posttag',
+                    'url'  => 'posttag/create',
                 ],
 
 

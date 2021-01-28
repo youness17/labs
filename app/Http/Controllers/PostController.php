@@ -40,7 +40,7 @@ class PostController extends Controller
         $posts = Post::all();
         $user = User::all();
 
-        return view("admin.blog.posts.create",  compact('posts', 'user' ,'tag'));
+        return view("admin.blog.posts.create",  compact('posts', 'user', 'tag'));
     }
 
     /**
@@ -88,9 +88,10 @@ class PostController extends Controller
         $menus = Menu::all();
         $logo = Logo::all();
         $comment = Comment::all();
-        $tag= Tag::all();
+        $tag = Tag::all();
         return view(
-            'pages.blog-post.index', compact('menus', 'logo', 'comment', 'post', 'user', 'tag' )
+            'pages.blog-post.index',
+            compact('menus', 'logo', 'comment', 'post', 'user', 'tag')
         );
     }
 
@@ -105,9 +106,9 @@ class PostController extends Controller
         //
         $user = User::all();
         $post = Post::find($id);
-      
 
-       
+
+
 
         return view("admin.blog.posts.edit", compact('post', 'user'));
     }
@@ -125,12 +126,12 @@ class PostController extends Controller
 
 
         //
-        if (Gate::check('post.post', $post)) {
-            // The user can create the post...
-            abort(403);
-        }
-     
-       
+        // if (Gate::check('post.post', $post)) {
+        //     // The user can create the post...
+        //     abort(403);
+        // }
+
+
         Storage::disk("public")->delete("img/"  . $post->img);
 
         $post->img = $request->file("img")->hashName();
@@ -162,7 +163,7 @@ class PostController extends Controller
 
         Storage::disk("public")->delete("img/"  . $post->img);
 
-
+        $this->authorize("post.delete", $post);
 
         $post->delete();
         return redirect()->back();

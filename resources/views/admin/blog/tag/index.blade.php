@@ -12,28 +12,24 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">ti</th>
-                <th scope="col">action </th>
+                <th scope="col">tag_id</th>
+                <th scope="col">post_id</th>
+                <th scope="col">action                                                           </th>
 
             </tr>
         </thead>
         <tbody>
 
-            @foreach ($banner as $i)
+            @foreach ($posttag as $i)
 
                 <tr>
                     <th scope="row">{{ $i->id }}</th>
-                    <td>
-
-                        <img style="max-width:10%" ; src="{{ asset("img/$i->img") }}" alt="">
-
-                    </td>
-                   
+                    <td>{{ $i->tag_id }}</td>
+                    <td>{{ $i->post_id }}</td>
                     <td class="d-flex">
-                        <form action="{{ route('banner.destroy', $i->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('post.destroy', $i->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('delete')
-                            <a href="{{ route('banner.edit', $i->id) }}" class="btn btn-primary">Éditer</a>
                             <button type="submit" class="btn btn-danger">Supprimer</button>
                         </form>
 
@@ -60,6 +56,6 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-center  ">
-        <a href="{{ route('banner.create') }}" class="btn btn-warning">CREATE</a>
+        <a href="{{ route('posttag.create') }}" class="btn btn-warning">CREATE</a>
     </div>
 @stop

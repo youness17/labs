@@ -45,7 +45,7 @@
         </div>
 
 
-@foreach ($tag as $i)
+{{-- @foreach ($tag as $i)
 
 <div class="form-check">
     <input class="form-check-input" type="checkbox" value="{{$i->tag}}" id="flexCheckIndeterminate">
@@ -54,7 +54,7 @@
     </label>
   </div>
     
-@endforeach
+@endforeach --}}
         
 
 

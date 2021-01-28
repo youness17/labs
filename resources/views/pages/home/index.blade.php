@@ -1,17 +1,17 @@
 @extends('templates.structure')
 
 @section('content')
-  
+
     <!-- Intro Section -->
 
-  @include('pages.home.banner.banner')
-    
+    @include('pages.home.banner.banner')
+
     <!-- Intro Section -->
 
 
     <!-- About section -->
-   
-@include('pages.home.about.index')
+
+    @include('pages.home.about.index')
 
     <!-- About section end -->
 
@@ -27,95 +27,7 @@
                     </div>
                     <div class="owl-carousel" id="testimonial-slide">
                         <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
-                                elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="img/avatar/01.jpg" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
-                                elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="img/avatar/02.jpg" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
-                                elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="img/avatar/01.jpg" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
-                                elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="img/avatar/02.jpg" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
-                                elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="img/avatar/01.jpg" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- single testimonial -->
-                        <div class="testimonial">
-                            <span>‘​‌‘​‌</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec
-                                elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-                            <div class="client-info">
-                                <div class="avatar">
-                                    <img src="img/avatar/02.jpg" alt="">
-                                </div>
-                                <div class="client-name">
-                                    <h2>Michael Smith</h2>
-                                    <p>CEO Company</p>
-                                </div>
-                            </div>
-                        </div>
+                        @include('pages.home.testimonials.index')
                     </div>
                 </div>
             </div>

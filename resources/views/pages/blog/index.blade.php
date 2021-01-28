@@ -53,7 +53,7 @@
                                 <a href="{{ route('post.show', $i->id) }}" class="read-more">Read More</a>
                             </div>
                         </div>
-                        <x-tags :tags="$i->tags"></x-tag>
+                        
                     @endforeach
 
                     <div>
@@ -100,9 +100,9 @@
                     <div class="widget-item">
                         <h2 class="widget-title">Tags</h2>
                         <ul class="tag">
-                            @foreach ($post as $post)
+                            @foreach ($tags as $i)
                                 
-                            <li><a href="">{{$post->tags}}</a></li>
+                            <li><a href="{{route('posts.tag.index' , ['id' => $i->id])}}">{{$i -> name}}</a></li>
 
                             @endforeach
                             

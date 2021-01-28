@@ -180,7 +180,7 @@
                         </ul>
                     </div>
                     <!-- Single widget -->
-                    <div class="widget-item">
+                    {{-- <div class="widget-item">
                         <h2 class="widget-title">Tags</h2>
                       
                         <ul class="tag">
@@ -188,6 +188,21 @@
                             <x-tags :tags="$post->tags"></x-tags>
                           
                            
+                        </ul>
+                    </div> --}}
+
+
+
+                    <div class="widget-item">
+                        <h2 class="widget-title">Tags</h2>
+                        <ul class="tag">
+                           
+                                
+                            <x-tags :tags="$post->tags"></x-tags>
+
+                            
+                            
+                         
                         </ul>
                     </div>
                     <!-- Single widget -->

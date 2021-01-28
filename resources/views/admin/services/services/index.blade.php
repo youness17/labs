@@ -25,7 +25,7 @@
 
                 <tr>
                     <td>{{ $i->id}}</td>
-                    <td>  <i class="{{ $i->icone->icone}}"></i></td>
+                    <td></td>
                     <td>{{ $i->titre }}</td>
                     <td>{{ $i->text }}</td>
                     <td class="d-flex">
